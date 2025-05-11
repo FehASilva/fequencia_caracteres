@@ -2,9 +2,9 @@
 Trabalho 1: Frequência de Caracteres (SSC0903 - CAD - 2025/1) 
 Autores:
 Felipe Aparecido da Silva – NUSP: 11954502
-Felipi Adenildo Soares Sousa – NUSP: []
+Felipi Adenildo Soares Sousa – NUSP: 10438790
 Francisco Jose de Sousa Filho – NUSP: 11200313
-Viktor Sergio Ferreira – NUSP: 11800570
+Viktor Sergio Ferreira – NUSP: 11800570
 */
 
 #include <stdio.h>
@@ -29,10 +29,10 @@ int compare(const void *a, const void *b){
     CharFreq *x = (CharFreq *)a;
     CharFreq *y = (CharFreq *)b;
 
-    // Ordena pela frequência (em ordem crescente)
+    // Ordena pela frequência
     if (x->freq != y->freq) return x->freq - y->freq;
 
-    // Ordena pelo valor ASCII (em ordem crescente), se necessário.
+    // Ordena pelo valor ASCII, se necessário.
     return x->ascii - y->ascii;
 }
 
@@ -104,7 +104,7 @@ int main(){
             }
         }
 
-        // Arrays de CharFreq, array temporário para ordenação e contafor de caracteres diferentes encontrados
+        // Arrays de CharFreq, array temporário para ordenação e contador de caracteres diferentes encontrados
         CharFreq list[ASCII_RANGE];
         CharFreq temp[ASCII_RANGE];
         int count = 0;
@@ -122,7 +122,7 @@ int main(){
         #pragma omp parallel
         {
             #pragma omp single
-            merge_sort_parallel(list, 0, count, temp, 4); // Profundidade 4 pode ser ajustada
+            merge_sort_parallel(list, 0, count, temp, 4);
         }
 
         // Imprime o resultado
